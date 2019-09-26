@@ -60,24 +60,4 @@ public class RentalServiceImpl implements RentalService
         return rentalrepos.save(newRental);
     }
 
-    //    @Transactional
-//    @Override
-//    public Rental save(Rental rental)
-//    {
-//        Rental newRental = new Rental();
-//        newRental.setTool(.getName());
-//
-//        ArrayList<UserRoles> newUsers = new ArrayList<>();
-//        for (UserRoles ur : role.getUserroles())
-//        {
-//            long id = ur.getUser()
-//                    .getUserid();
-//            User user = userrepos.findById(id)
-//                    .orElseThrow(() -> new ResourceNotFoundException("User id " + id + " not found!"));
-//            newUsers.add(new UserRoles(ur.getUser(), newRole));
-//        }
-//        newRole.setUserroles(newUsers);
-//
-//        return rolerepos.save(role);
-//    }
 }
