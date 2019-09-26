@@ -14,5 +14,6 @@ public interface RentalService
 
     ArrayList<Rental> findRentalsByUser(User user);
 
-//    Rental save(Rental rental);
+    Rental saveRental(Rental rental);
+
 }
