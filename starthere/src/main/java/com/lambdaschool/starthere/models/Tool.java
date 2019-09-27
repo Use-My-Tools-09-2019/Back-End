@@ -62,11 +62,12 @@ public class Tool
     private User user;
 
 //  Constructors
+
     public Tool()
     {
     }
 
-    public Tool(String toolname, String tooldescription, String tooltype, String toolimageurl, boolean available, boolean rental, float rentalcost, String rentalduration, List<Rental> rentals)
+    public Tool(String toolname, String tooldescription, String tooltype, String toolimageurl, boolean available, boolean rental, float rentalcost, String rentalduration, List<Rental> rentals, User user)
     {
         this.toolname = toolname;
         this.tooldescription = tooldescription;
@@ -77,9 +78,11 @@ public class Tool
         this.rentalcost = rentalcost;
         this.rentalduration = rentalduration;
         this.rentals = rentals;
+        this.user = user;
     }
 
     //  Getters / Setters
+
 
     public long getToolid()
     {
@@ -179,5 +182,15 @@ public class Tool
     public void setRentals(List<Rental> rentals)
     {
         this.rentals = rentals;
+    }
+
+    public User getUser()
+    {
+        return user;
+    }
+
+    public void setUser(User user)
+    {
+        this.user = user;
     }
 }

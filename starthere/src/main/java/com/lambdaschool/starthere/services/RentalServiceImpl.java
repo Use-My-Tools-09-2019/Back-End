@@ -56,6 +56,7 @@ public class RentalServiceImpl implements RentalService
         Rental newRental = new Rental();
         newRental.setUser(currentUser);
         newRental.setTool(rental.getTool());
+        newRental.setrentaldate(rental.getrentaldate());
 
         return rentalrepos.save(newRental);
     }

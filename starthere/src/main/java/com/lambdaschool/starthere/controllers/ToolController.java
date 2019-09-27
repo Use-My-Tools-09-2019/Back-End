@@ -42,7 +42,7 @@ public class ToolController
             dataType = "string",
             paramType = "query",
             value = "Sorting criteria in the format: property(,asc|desc). " + "Default sort order is ascending. " + "Multiple sort criteria are supported.")})
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping(value = "/tools",
             produces = {"application/json"})
     public ResponseEntity<?> listAllTools(

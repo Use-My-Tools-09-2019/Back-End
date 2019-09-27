@@ -1,9 +1,13 @@
 package com.lambdaschool.starthere.services;
 
 import com.lambdaschool.starthere.models.Tool;
+import com.lambdaschool.starthere.models.User;
 import com.lambdaschool.starthere.repository.ToolRepository;
+import com.lambdaschool.starthere.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +19,9 @@ public class ToolServiceImpl implements ToolService
 {
     @Autowired
     private ToolRepository toolrepos;
+
+    @Autowired
+    private UserRepository userrepos;
 
     @Override
     public ArrayList<Tool> listAllTools(Pageable pageable)
@@ -75,6 +82,8 @@ public class ToolServiceImpl implements ToolService
     @Override
     public Tool saveTool(Tool tool)
     {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User currentUser = userrepos.findByUsername(authentication.getName());
         Tool newTool = new Tool();
 
         newTool.setToolname(tool.getToolname());
@@ -85,6 +94,7 @@ public class ToolServiceImpl implements ToolService
         newTool.setRental(tool.isRental());
         newTool.setRentalcost(tool.getRentalcost());
         newTool.setRentalduration(tool.getRentalduration());
+        newTool.setUser(currentUser);
 
         return toolrepos.save(newTool);
     }
